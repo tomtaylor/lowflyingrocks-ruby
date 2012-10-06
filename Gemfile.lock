@@ -1,0 +1,18 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    hpricot (0.8.6)
+    json (1.7.5)
+    linguistics (1.0.9)
+    oauth (0.4.7)
+    twitter4r (0.7.0)
+      json (>= 1.1.1)
+      oauth (>= 0.4.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  hpricot
+  linguistics
+  twitter4r
