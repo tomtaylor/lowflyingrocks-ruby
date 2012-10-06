@@ -1,0 +1,3 @@
+# m h  dom mon dow   command
+# 0   3 * * * ./scripts/lowflyingrocks/gethtml.sh
+# */5 * * * * bash -lc "cd ~/scripts/lowflyingrocks && bundle exec ruby lowflyingrocks.rb"
