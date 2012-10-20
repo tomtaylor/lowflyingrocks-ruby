@@ -55,15 +55,23 @@ end
 
 asteroids.each do |asteroid|
   if asteroid[:datetime] <= Time.now and asteroid[:datetime] > Time.now - 300
-    gem 'twitter4r'
+    gem 'twitter'
     require 'twitter'
+
+    oauth_config = YAML.load_file(File.join(current_path, 'oauth.yml'))
+    Twitter.configure do |config|
+      config.consumer_key = oauth_config['oauth_consumer']['key']
+      config.consumer_secret = oauth_config['oauth_consumer']['secret']
+      config.oauth_token = oauth_config['oauth_access']['key']
+      config.oauth_token_secret = oauth_config['oauth_access']['secret']
+    end
+
     require 'bigdecimal'
     require 'linguistics'
     Linguistics::use( :en )
     distance = get_distance(asteroid[:au_norm])
     message = "#{asteroid[:name]}, ~#{get_size(asteroid[:h])} in diameter, just passed the Earth at #{asteroid[:speed]}km/s, missing by ~#{distance} km."
     #puts message
-    client = Twitter::Client.from_config(File.join(current_path, 'oauth.yml'), 'lowflyingrocks')
-    client.status(:post, message)
+    Twitter.update(message)
   end
 end
