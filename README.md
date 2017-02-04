@@ -1,1 +1,1 @@
-oh god all this code is so ugly
+UNMAINTAINED - see [tomtaylor/lowflyingrocks](https://github.com/tomtaylor/lowflyingrocks).
